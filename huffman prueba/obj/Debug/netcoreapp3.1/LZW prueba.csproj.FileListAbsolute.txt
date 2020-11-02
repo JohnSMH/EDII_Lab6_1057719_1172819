@@ -9,3 +9,16 @@ C:\Users\jseba\Source\Repos\EDII_Lab4_1057719_1172819\huffman prueba\bin\Debug\n
 C:\Users\jseba\Source\Repos\EDII_Lab4_1057719_1172819\huffman prueba\bin\Debug\netcoreapp3.1\LZW prueba.pdb
 C:\Users\jseba\Source\Repos\EDII_Lab4_1057719_1172819\huffman prueba\obj\Debug\netcoreapp3.1\LZW prueba.dll
 C:\Users\jseba\Source\Repos\EDII_Lab4_1057719_1172819\huffman prueba\obj\Debug\netcoreapp3.1\LZW prueba.pdb
+C:\Users\Owner-1\Source\Repos\EDII_Lab5_1057719_1172819\huffman prueba\bin\Debug\netcoreapp3.1\LZW prueba.exe
+C:\Users\Owner-1\Source\Repos\EDII_Lab5_1057719_1172819\huffman prueba\bin\Debug\netcoreapp3.1\LZW prueba.deps.json
+C:\Users\Owner-1\Source\Repos\EDII_Lab5_1057719_1172819\huffman prueba\bin\Debug\netcoreapp3.1\LZW prueba.runtimeconfig.json
+C:\Users\Owner-1\Source\Repos\EDII_Lab5_1057719_1172819\huffman prueba\bin\Debug\netcoreapp3.1\LZW prueba.runtimeconfig.dev.json
+C:\Users\Owner-1\Source\Repos\EDII_Lab5_1057719_1172819\huffman prueba\bin\Debug\netcoreapp3.1\LZW prueba.dll
+C:\Users\Owner-1\Source\Repos\EDII_Lab5_1057719_1172819\huffman prueba\bin\Debug\netcoreapp3.1\LZW prueba.pdb
+C:\Users\Owner-1\Source\Repos\EDII_Lab5_1057719_1172819\huffman prueba\obj\Debug\netcoreapp3.1\LZW prueba.csprojAssemblyReference.cache
+C:\Users\Owner-1\Source\Repos\EDII_Lab5_1057719_1172819\huffman prueba\obj\Debug\netcoreapp3.1\LZW prueba.csproj.CoreCompileInputs.cache
+C:\Users\Owner-1\Source\Repos\EDII_Lab5_1057719_1172819\huffman prueba\obj\Debug\netcoreapp3.1\LZW prueba.AssemblyInfoInputs.cache
+C:\Users\Owner-1\Source\Repos\EDII_Lab5_1057719_1172819\huffman prueba\obj\Debug\netcoreapp3.1\LZW prueba.AssemblyInfo.cs
+C:\Users\Owner-1\Source\Repos\EDII_Lab5_1057719_1172819\huffman prueba\obj\Debug\netcoreapp3.1\LZW prueba.dll
+C:\Users\Owner-1\Source\Repos\EDII_Lab5_1057719_1172819\huffman prueba\obj\Debug\netcoreapp3.1\LZW prueba.pdb
+C:\Users\Owner-1\Source\Repos\EDII_Lab5_1057719_1172819\huffman prueba\obj\Debug\netcoreapp3.1\LZW prueba.genruntimeconfig.cache
