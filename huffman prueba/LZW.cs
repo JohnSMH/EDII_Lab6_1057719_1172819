@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace huffman_prueba
@@ -231,21 +232,88 @@ namespace huffman_prueba
 
         public string CifrarRuta(string msg, int row, int col)
         {
-
+            row = row * col;
             char[,] matrix = new char[row, col];
             char[] characters = msg.ToCharArray();
             string cipher = "";
-            List<char[,]> hola;
-            for (int i = 0; i < row; i++)
-            {
-                for (int j = 0; j < col; j++)
-                {
-                    matrix[i, j] = characters[i + j + i * 2];
-                }
-            }
           
+            int o = 0;
+            int p = 0;
+                if (o < msg.Length)
+                {
+                    for (int l = 0; l < row; l++)
+                    {
+                        for (int j = 0; j < col; j++)
+                        {
+                            if (o <msg.Length)
+                            {
+                                matrix[l, j] = characters[o];
+                                o++;
+                            }
+                            else { matrix[l, j] = '*'; }
+
+                        }
+                    }
+                    for (int u = 0; u < col; u++)
+                    {
+                        for (int l = 0; l < row; l++)
+                        {
+                            cipher += matrix[l, u];
+                        }
+                    }
+
+                } 
 
             return cipher;
+        }
+
+        public string DecifrarRuta(string msg, int row, int col)
+        {
+            row = row * col;
+            char[,] matrix = new char[col, row];
+            char[] characters = msg.ToCharArray();
+            string descipher = "";
+
+            int o = 0;
+            if (o < msg.Length)
+            {
+                for (int l = 0; l < col; l++)
+                {
+                    for (int j = 0; j < row; j++)
+                    {
+                        if (o < msg.Length)
+                        {
+                            matrix[l, j] = characters[o];
+                            o++;
+                        }
+                        else { matrix[l, j] = '*'; }
+
+                    }
+                }
+                for (int u = 0; u < row; u++)
+                {
+                    for (int l = 0; l < col; l++)
+                    {
+                        descipher += matrix[l, u];
+                    }
+                }
+
+            }
+            string resultado = "";
+            for (int i = 0; i < descipher.Length; i++)
+            {
+                if (descipher[i] != '*')
+                {
+                    resultado += descipher[i];
+                }
+                else
+                {
+                    break;
+                }
+
+            }
+
+            return resultado;
         }
     }
 }
