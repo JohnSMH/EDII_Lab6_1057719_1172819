@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Owner-1\\source\\repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\LZW prueba.csproj": {}
+    "C:\\Users\\Owner-1\\Source\\Repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\LZW prueba.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Owner-1\\source\\repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\LZW prueba.csproj": {
+    "C:\\Users\\Owner-1\\Source\\Repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\LZW prueba.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Owner-1\\source\\repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\LZW prueba.csproj",
+        "projectUniqueName": "C:\\Users\\Owner-1\\Source\\Repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\LZW prueba.csproj",
         "projectName": "LZW prueba",
-        "projectPath": "C:\\Users\\Owner-1\\source\\repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\LZW prueba.csproj",
+        "projectPath": "C:\\Users\\Owner-1\\Source\\Repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\LZW prueba.csproj",
         "packagesPath": "C:\\Users\\Owner-1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Owner-1\\source\\repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\obj\\",
+        "outputPath": "C:\\Users\\Owner-1\\Source\\Repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

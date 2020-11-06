@@ -34,11 +34,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Owner-1\\source\\repos\\EDII_Lab5_1057719_1172819\\Lab1\\Lab1\\API LZW.csproj",
+      "projectUniqueName": "C:\\Users\\Owner-1\\Source\\Repos\\EDII_Lab5_1057719_1172819\\Lab1\\Lab1\\API LZW.csproj",
       "projectName": "API LZW",
-      "projectPath": "C:\\Users\\Owner-1\\source\\repos\\EDII_Lab5_1057719_1172819\\Lab1\\Lab1\\API LZW.csproj",
+      "projectPath": "C:\\Users\\Owner-1\\Source\\Repos\\EDII_Lab5_1057719_1172819\\Lab1\\Lab1\\API LZW.csproj",
       "packagesPath": "C:\\Users\\Owner-1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Owner-1\\source\\repos\\EDII_Lab5_1057719_1172819\\Lab1\\Lab1\\obj\\",
+      "outputPath": "C:\\Users\\Owner-1\\Source\\Repos\\EDII_Lab5_1057719_1172819\\Lab1\\Lab1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -59,8 +59,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Owner-1\\source\\repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\LZW prueba.csproj": {
-              "projectPath": "C:\\Users\\Owner-1\\source\\repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\LZW prueba.csproj"
+            "C:\\Users\\Owner-1\\Source\\Repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\LZW prueba.csproj": {
+              "projectPath": "C:\\Users\\Owner-1\\Source\\Repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\LZW prueba.csproj"
             }
           }
         }
