@@ -11,6 +11,32 @@ namespace huffman_prueba
     {
         static void Main(string[] args)
         {
+            //READ
+            var fileRead = new FileStream("cuento.txt", FileMode.OpenOrCreate);
+            var BfileRead = new BufferedStream(fileRead);
+            var reader = new StreamReader(BfileRead);
+
+            string prueba = reader.ReadToEnd();
+
+            reader.Close();
+            BfileRead.Close();
+            fileRead.Close();
+
+            //WRITE
+            var fileWrite = new FileStream("cuento.csr",FileMode.OpenOrCreate);
+            var BfileWrite = new BufferedStream(fileWrite);
+            var writer = new StreamWriter(BfileWrite);
+
+            string salida="";
+            foreach (char item in salida)
+            {
+                writer.Write(item);
+            }
+
+            writer.Close();
+            BfileWrite.Close();
+            fileWrite.Close();
+
             string key;
             key = "MARYJ";
             LZW hola = new LZW();
