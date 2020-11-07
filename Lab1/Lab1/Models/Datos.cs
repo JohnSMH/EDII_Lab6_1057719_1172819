@@ -7,20 +7,17 @@ namespace Lab1.Models
 {
     public class Datos
     {
-        public string Nombredelarchivooriginal { get; set; }
-        public string Nombreyrutadelarchivocomprimido { get; set; }
-        public double Razóndecompresión { get; set; }
-        public double Factordecompresión { get; set; }
-        public double Porcentajedereducción { get; set; }
+        public string Word { get; set; }
+        public int Levels { get; set; }
+        public int Rows { get; set; }
+        public int Columns { get; set; }
 
-        public Datos(string nombre1, string nombre2, double razon, double factor, double porcentaje)
+        public Datos(string word, int levels, int rows, int columns)
         {
-
-            Nombredelarchivooriginal = nombre1;
-            Nombreyrutadelarchivocomprimido = nombre2;
-            Razóndecompresión = razon;
-            Factordecompresión = factor;
-            Porcentajedereducción = porcentaje;
+            Word = word;
+            Levels = levels;
+            Rows = rows;
+            Columns = columns;
         }
         public Datos() { }
 

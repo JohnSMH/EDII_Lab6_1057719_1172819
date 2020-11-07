@@ -27,7 +27,16 @@ namespace huffman_prueba
             var BfileWrite = new BufferedStream(fileWrite);
             var writer = new StreamWriter(BfileWrite);
 
-            string salida="";
+
+            string key;
+            key = "HOLAiamoru";
+            Cifrado hola = new Cifrado();
+
+            string encoded = hola.encoder(key);
+
+            string salida= "";
+            salida = hola.CifrarCesar(prueba, encoded);
+
             foreach (char item in salida)
             {
                 writer.Write(item);
@@ -37,20 +46,45 @@ namespace huffman_prueba
             BfileWrite.Close();
             fileWrite.Close();
 
-            string key;
-            key = "MARYJ";
-            LZW hola = new LZW();
+            //READ
+            var fileRead1 = new FileStream("cuento.csr", FileMode.OpenOrCreate);
+            var BfileRead1 = new BufferedStream(fileRead1);
+            var reader1 = new StreamReader(BfileRead1);
 
-            string encoded = hola.encoder(key);
-            string message = "MY SPIDER SENSE ARE TINGLING";
-            Console.WriteLine(hola.CifrarCesar(message, encoded));
-            Console.WriteLine(hola.DecifrarCesar((hola.CifrarCesar(message, encoded)), key));
-            Console.WriteLine();
-            Console.WriteLine(hola.Cifrarzigzag("MY SPIDER SENSE ARE TINGLING", 4));
-            Console.WriteLine(hola.Descifrarzigzag(hola.Cifrarzigzag("MY SPIDER SENSE ARE TINGLING", 4), 4));
-            Console.WriteLine();
-            Console.WriteLine(hola.CifrarRuta("MY SPIDER SENSE ARE TINGLING", 4, 3));
-            Console.WriteLine(hola.DecifrarRuta((hola.CifrarRuta("MY SPIDER SENSE ARE TINGLING", 4, 3)), 4, 3));
+            string prueba1 = reader1.ReadToEnd();
+
+            reader1.Close();
+            BfileRead1.Close();
+            fileRead1.Close();
+
+            //WRITE
+            var fileWrite1 = new FileStream("cuentoa.txt", FileMode.OpenOrCreate);
+            var BfileWrite1 = new BufferedStream(fileWrite1);
+            var writer1 = new StreamWriter(BfileWrite1);
+
+
+            string salida1 = "";
+            salida1 = hola.DecifrarCesar(prueba1, encoded);
+
+            foreach (char item in salida1)
+            {
+                writer1.Write(item);
+            }
+
+            writer1.Close();
+            BfileWrite1.Close();
+            fileWrite1.Close();
+
+
+
+            //Console.WriteLine(hola.CifrarCesar(message, encoded));
+            //Console.WriteLine(hola.DecifrarCesar((hola.CifrarCesar(message, encoded)), key));
+            //Console.WriteLine();
+            //Console.WriteLine(hola.Cifrarzigzag("MY SPIDER SENSE ARE TINGLING", 4));
+            //Console.WriteLine(hola.Descifrarzigzag(hola.Cifrarzigzag("MY SPIDER SENSE ARE TINGLING", 4), 4));
+            //Console.WriteLine();
+            //Console.WriteLine(hola.CifrarRuta("MY SPIDER SENSE ARE TINGLING", 4, 3));
+            //Console.WriteLine(hola.DecifrarRuta((hola.CifrarRuta("MY SPIDER SENSE ARE TINGLING", 4, 3)), 4, 3));
             Console.ReadKey();
         }
 
