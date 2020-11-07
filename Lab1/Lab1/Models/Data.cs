@@ -21,11 +21,5 @@ namespace Lab1.Models
 
         }
 
-        public List<Datos> archivos = new List<Datos>();
-
-        public int Size = 0;
-        public string nombre = "";
-        public string texto = "";
-
     }
 }

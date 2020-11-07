@@ -27,7 +27,7 @@ namespace Lab1.Controllers
         [HttpGet]
         public IActionResult Mostrar()
         {
-            return new JsonResult(new { BIENVENIDA = "LABORATORIO 4" }); 
+            return new JsonResult(new { BIENVENIDA = "LABORATORIO 5" }); 
         }
 
 
@@ -160,7 +160,7 @@ namespace Lab1.Controllers
         }
 
 
-        // POST: api/descipher DESCOMPRIR
+        // POST: api/descipher DESCIFRAR
         [HttpPost("descipher")]
         public IActionResult Descifrar([FromRoute] string method, [FromForm]IFormFile file, [FromForm] Datos key)
         {
