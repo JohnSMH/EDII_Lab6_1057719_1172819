@@ -126,7 +126,7 @@ namespace huffman_prueba
                 n = (msg.Length + 1) % nivel;
                 for (int i = 0; i < n + 1; i++)
                 {
-                    msg += "*";
+                    msg += "-";
                 }
             }
             char[,] rail = new char[nivel, (msg.Length)] ;
@@ -247,7 +247,7 @@ namespace huffman_prueba
             string resultado = "";
             for (int i = 0; i < result.Length; i++)
             {
-                if (result[i]!='*')
+                if (result[i]!='-')
                 {
                     resultado += result[i]; 
                 }
