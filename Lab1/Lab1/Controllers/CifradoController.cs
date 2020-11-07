@@ -51,7 +51,7 @@ namespace Lab1.Controllers
                     fileRead.Close();
 
                     //WRITE
-                    var fileWrite = new FileStream(file.Name + ".csr", FileMode.OpenOrCreate);
+                    var fileWrite = new FileStream(Path.GetFileNameWithoutExtension(file.FileName) + ".csr", FileMode.OpenOrCreate);
                     var BfileWrite = new BufferedStream(fileWrite);
                     var writer = new StreamWriter(BfileWrite);
 
@@ -71,10 +71,10 @@ namespace Lab1.Controllers
                     BfileWrite.Close();
                     fileWrite.Close();
 
-                    var files = System.IO.File.OpenRead(file.Name + ".csr");
+                    var files = System.IO.File.OpenRead(Path.GetFileNameWithoutExtension(file.FileName) + ".csr");
                     return new FileStreamResult(files, "application/csr")
                     {
-                        FileDownloadName = file.Name + ".csr"
+                        FileDownloadName = Path.GetFileNameWithoutExtension(file.FileName) + ".csr"
                     };
                 }
                 else if (method == "ZigZag" && key.Levels != null)
@@ -89,7 +89,7 @@ namespace Lab1.Controllers
                     fileRead.Close();
 
                     //WRITE
-                    var fileWrite = new FileStream(file.Name + ".zz", FileMode.OpenOrCreate);
+                    var fileWrite = new FileStream(Path.GetFileNameWithoutExtension(file.FileName) + ".zz", FileMode.OpenOrCreate);
                     var BfileWrite = new BufferedStream(fileWrite);
                     var writer = new StreamWriter(BfileWrite);
 
@@ -107,10 +107,10 @@ namespace Lab1.Controllers
                     BfileWrite.Close();
                     fileWrite.Close();
 
-                    var files = System.IO.File.OpenRead(file.Name + ".zz");
+                    var files = System.IO.File.OpenRead(Path.GetFileNameWithoutExtension(file.FileName) + ".zz");
                     return new FileStreamResult(files, "application/zz")
                     {
-                        FileDownloadName = file.Name + ".zz"
+                        FileDownloadName = Path.GetFileNameWithoutExtension(file.FileName) + ".zz"
                     };
                 }
                 else if (method == "Ruta" && key.Rows != null && key.Columns != null)
@@ -125,7 +125,7 @@ namespace Lab1.Controllers
                     fileRead.Close();
 
                     //WRITE
-                    var fileWrite = new FileStream(file.Name + ".rt", FileMode.OpenOrCreate);
+                    var fileWrite = new FileStream(Path.GetFileNameWithoutExtension(file.FileName) + ".rt", FileMode.OpenOrCreate);
                     var BfileWrite = new BufferedStream(fileWrite);
                     var writer = new StreamWriter(BfileWrite);
 
@@ -143,10 +143,10 @@ namespace Lab1.Controllers
                     BfileWrite.Close();
                     fileWrite.Close();
 
-                    var files = System.IO.File.OpenRead(file.Name + ".rt");
+                    var files = System.IO.File.OpenRead(Path.GetFileNameWithoutExtension(file.FileName) + ".rt");
                     return new FileStreamResult(files, "application/rt")
                     {
-                        FileDownloadName = file.FileName + ".rt"
+                        FileDownloadName = Path.GetFileNameWithoutExtension(file.FileName) + ".rt"
                     };
                 }
                 else { return BadRequest("Error no ingreso método o llave"); }
@@ -161,12 +161,126 @@ namespace Lab1.Controllers
 
 
         // POST: api/descipher DESCOMPRIR
-        [Route("descompress")]
-        public IActionResult Decompresion([FromForm]IFormFile file)
+        [HttpPost("descipher")]
+        public IActionResult Descifrar([FromRoute] string method, [FromForm]IFormFile file, [FromForm] Datos key)
         {
+            string nombre = (file.FileName);
+            using var fileRead = file.OpenReadStream();
             try
             {
-                return Ok();
+                if (nombre.Contains(".csr") && key.Word != null)
+                {
+
+                    var BfileRead = new BufferedStream(fileRead);
+                    var reader = new StreamReader(BfileRead);
+
+                    string prueba = reader.ReadToEnd();
+
+                    reader.Close();
+                    BfileRead.Close();
+                    fileRead.Close();
+
+                    //WRITE
+                    var fileWrite = new FileStream(Path.GetFileNameWithoutExtension(file.FileName) + ".txt", FileMode.OpenOrCreate);
+                    var BfileWrite = new BufferedStream(fileWrite);
+                    var writer = new StreamWriter(BfileWrite);
+
+                    Cifrado hola = new Cifrado();
+
+                    string encoded = hola.encoder(key.Word);
+
+                    string salida = "";
+                    salida = hola.DecifrarCesar(prueba, encoded);
+
+                    foreach (char item in salida)
+                    {
+                        writer.Write(item);
+                    }
+
+                    writer.Close();
+                    BfileWrite.Close();
+                    fileWrite.Close();
+
+                    var files = System.IO.File.OpenRead(Path.GetFileNameWithoutExtension(file.FileName) + ".txt");
+                    return new FileStreamResult(files, "application/txt")
+                    {
+                        FileDownloadName = Path.GetFileNameWithoutExtension(file.FileName) + ".txt"
+                    };
+                }
+                else if (nombre.Contains(".zz") && key.Levels != null)
+                {
+                    var BfileRead = new BufferedStream(fileRead);
+                    var reader = new StreamReader(BfileRead);
+
+                    string prueba = reader.ReadToEnd();
+
+                    reader.Close();
+                    BfileRead.Close();
+                    fileRead.Close();
+
+                    //WRITE
+                    var fileWrite = new FileStream(Path.GetFileNameWithoutExtension(file.FileName) + ".txt", FileMode.OpenOrCreate);
+                    var BfileWrite = new BufferedStream(fileWrite);
+                    var writer = new StreamWriter(BfileWrite);
+
+                    Cifrado hola = new Cifrado();
+
+                    string salida = "";
+                    salida = hola.Descifrarzigzag(prueba, key.Levels);
+
+                    foreach (char item in salida)
+                    {
+                        writer.Write(item);
+                    }
+
+                    writer.Close();
+                    BfileWrite.Close();
+                    fileWrite.Close();
+
+                    var files = System.IO.File.OpenRead(Path.GetFileNameWithoutExtension(file.FileName) + ".txt");
+                    return new FileStreamResult(files, "application/txt")
+                    {
+                        FileDownloadName = Path.GetFileNameWithoutExtension(file.FileName) + ".txt"
+                    };
+                }
+                else if (nombre.Contains(".rt") && key.Rows != null && key.Columns != null)
+                {
+                    var BfileRead = new BufferedStream(fileRead);
+                    var reader = new StreamReader(BfileRead);
+
+                    string prueba = reader.ReadToEnd();
+
+                    reader.Close();
+                    BfileRead.Close();
+                    fileRead.Close();
+
+                    //WRITE
+                    var fileWrite = new FileStream(Path.GetFileNameWithoutExtension(file.FileName) + ".txt", FileMode.OpenOrCreate);
+                    var BfileWrite = new BufferedStream(fileWrite);
+                    var writer = new StreamWriter(BfileWrite);
+
+                    Cifrado hola = new Cifrado();
+
+                    string salida = "";
+                    salida = hola.DecifrarRuta(prueba, key.Rows, key.Columns);
+
+                    foreach (char item in salida)
+                    {
+                        writer.Write(item);
+                    }
+
+                    writer.Close();
+                    BfileWrite.Close();
+                    fileWrite.Close();
+
+                    var files = System.IO.File.OpenRead(Path.GetFileNameWithoutExtension(file.FileName) + ".txt");
+                    return new FileStreamResult(files, "application/rt")
+                    {
+                        FileDownloadName = Path.GetFileNameWithoutExtension(file.FileName) + ".txt"
+                    };
+                }
+                else { return BadRequest("Error no ingreso método o llave"); }
+
             }
             catch (Exception ex)
             {
