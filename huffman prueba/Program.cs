@@ -80,8 +80,8 @@ namespace huffman_prueba
             //Console.WriteLine(hola.CifrarCesar(message, encoded));
             //Console.WriteLine(hola.DecifrarCesar((hola.CifrarCesar(message, encoded)), key));
             //Console.WriteLine();
-            Console.WriteLine(hola.Cifrarzigzag("En esta práctica de laboratorio se tiene como objetivo determinar el valor experimental de la resistividad de un alambre de Nicromo, con datos brindados en el instructivo, haciendo uso de un análisis gráfico basado en la ley de ohm y compararlo con un valor teórico. Así mismo se busca comprobar de manera experimental la dependencia que posee la resistencia eléctrica de un material con la longitud y el área, tomando de referencia los conceptos aprendidos en el curso. Para que finalmente se pueda calcular un porcentaje de error con base al valor teórico.", 4));
-            Console.WriteLine(hola.Descifrarzigzag(hola.Cifrarzigzag("En esta práctica de laboratorio se tiene como objetivo determinar el valor experimental de la resistividad de un alambre de Nicromo, con datos brindados en el instructivo, haciendo uso de un análisis gráfico basado en la ley de ohm y compararlo con un valor teórico. Así mismo se busca comprobar de manera experimental la dependencia que posee la resistencia eléctrica de un material con la longitud y el área, tomando de referencia los conceptos aprendidos en el curso. Para que finalmente se pueda calcular un porcentaje de error con base al valor teórico.", 4), 4));
+            Console.WriteLine(hola.Cifrarzigzag("MY SPIDER SENSE ARE TINGLING", 4));
+            Console.WriteLine(hola.Descifrarzigzag(hola.Cifrarzigzag("MY SPIDER SENSE ARE TINGLING", 4), 4));
             Console.WriteLine();
             Console.WriteLine(hola.CifrarRuta("MY SPIDER SENSE ARE TINGLING", 4, 3));
             Console.WriteLine(hola.DecifrarRuta((hola.CifrarRuta("MY SPIDER SENSE ARE TINGLING", 4, 3)), 4, 3));

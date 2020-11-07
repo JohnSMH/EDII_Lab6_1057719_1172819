@@ -129,21 +129,22 @@ namespace huffman_prueba
                     msg += "-";
                 }
             }
-            char[,] rail = new char[nivel, (msg.Length)] ;
+            char[,] matriz = new char[nivel, (msg.Length)];
 
             for (int i = 0; i < nivel; i++)
                 for (int j = 0; j < msg.Length; j++)
-                    rail[i,j] = '\n';
-            bool dir_down = false;
+                    matriz[i, j] = '*';
+
+            bool abajo = false;
             int col = 0;
             int rows = 0;
             for (int i = 0; i < msg.Length; i++)
             {
                 if (rows == 0 || rows == nivel - 1)
-                    dir_down = !dir_down;
-                rail[rows, col++] = msg[i];
+                    abajo = !abajo;
+                matriz[rows, col++] = msg[i];
 
-                if (dir_down)
+                if (abajo)
                     rows += 1;
                 else
                     rows -= 1;
@@ -152,66 +153,32 @@ namespace huffman_prueba
             string result = "";
             for (int i = 0; i < nivel; i++)
                 for (int j = 0; j < msg.Length; j++)
-                    if (rail[i,j] != '\n')
-                        result += rail[i,j];
+                    if (matriz[i, j] != '*')
+                        result += matriz[i, j];
 
             return result;
         }
 
-        public string cifrar (string msg, int nivel)
+        public string Descifrarzigzag(string msg, int nivel)
         {
-            int n = 0;
-            int o = 0;
-            string cipher ="";
-            char[] characters = msg.ToCharArray();
-
-            if ((msg.Length + 1) % nivel != 0)
-            {
-                n = (msg.Length + 1) % nivel;
-                for (int i = 0; i < n + 1; i++)
-                {
-                    msg += "*";
-                }
-            }
-            List<char>[] Cifrar = new List<char>[nivel];
+            char[,] matriz = new char[nivel, (msg.Length)];
             for (int i = 0; i < nivel; i++)
-            {
-                Cifrar[i] = new List<char>();
-            }
-            for (int i = 0; i < nivel ; i++)
-            {
-                for (int j = nivel; j > nivel; j--)
-                {
-                    Cifrar[i].Add(characters[(msg.Length / i) * j ]);
-                }
-            }
-            for (int i = 0; i < nivel; i++)
-            {
-                cipher += Cifrar[i].ToString();  
-            }
-            return cipher;
-        }
-
-        public string Descifrarzigzag(string cipher, int nivel)
-        {
-            char[,] rail = new char[nivel, (cipher.Length)];
-            for (int i = 0; i < nivel; i++)
-                for (int j = 0; j < cipher.Length; j++)
-                    rail[i, j] = '\n';
-            bool dir_down = false;
+                for (int j = 0; j < msg.Length; j++)
+                    matriz[i, j] = '*';
+            bool abajo = false;
 
             int row = 0, col = 0;
 
-            for (int i = 0; i < cipher.Length; i++)
+            for (int i = 0; i < msg.Length; i++)
             {
                 if (row == 0)
-                    dir_down = true;
+                    abajo = true;
                 if (row == nivel - 1)
-                    dir_down = false;
+                    abajo = false;
 
-                rail[row, col++] = '^';
+                matriz[row, col++] = '$';
 
-                if (dir_down)
+                if (abajo)
                     row += 1;
                 else
                     row -= 1;
@@ -220,25 +187,25 @@ namespace huffman_prueba
 
             int index = 0;
             for (int i = 0; i < nivel; i++)
-                for (int j = 0; j < cipher.Length; j++)
-                    if (rail[i, j] == '^' && index < cipher.Length)
-                        rail[i, j] = cipher[index++];
+                for (int j = 0; j < msg.Length; j++)
+                    if (matriz[i, j] == '$' && index < msg.Length)
+                        matriz[i, j] = msg[index++];
 
             string result = "";
 
             row = 0; col = 0;
-            for (int i = 0; i < cipher.Length; i++)
+            for (int i = 0; i < msg.Length; i++)
             {
                 if (row == 0)
-                    dir_down = true;
+                    abajo = true;
                 if (row == nivel - 1)
-                    dir_down = false;
+                    abajo = false;
 
                 // place the marker 
-                if (rail[row, col] != '^')
-                    result += rail[row, col++];
+                if (matriz[row, col] != '$')
+                    result += matriz[row, col++];
 
-                if (dir_down)
+                if (abajo)
                     row += 1;
                 else
                     row -= 1;
@@ -247,9 +214,9 @@ namespace huffman_prueba
             string resultado = "";
             for (int i = 0; i < result.Length; i++)
             {
-                if (result[i]!='-')
+                if (result[i] != '-')
                 {
-                    resultado += result[i]; 
+                    resultado += result[i];
                 }
                 else
                 {
@@ -258,7 +225,7 @@ namespace huffman_prueba
 
             }
 
-         return resultado;
+            return resultado;
         }
 
         public string CifrarRuta(string msg, int row, int col)
