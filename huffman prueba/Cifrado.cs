@@ -21,8 +21,8 @@ namespace huffman_prueba
          public String encoder(string clave)
         {
             key = clave.ToCharArray();
-            String encoded = "";
-
+            StringBuilder encoded = new StringBuilder();
+           
             Boolean[] arr = new Boolean[letras.Length + 6];
 
             for (int i = 0; i < key.Length; i++)
@@ -31,7 +31,7 @@ namespace huffman_prueba
                 {
                     if (arr[key[i] - 65] == false)
                     {
-                        encoded += (char)key[i];
+                        encoded.Append((char)key[i]);
                         arr[key[i] - 65] = true;
                     }
                 }
@@ -45,10 +45,10 @@ namespace huffman_prueba
                 if (arr[i] == false)
                 {
                     arr[i] = true;
-                    encoded += (char)(i + 65);
+                    encoded.Append((char)(i + 65));
                 }
             }
-            return encoded;
+            return encoded.ToString();
         }
 
         public int getpos(char x)
@@ -77,7 +77,7 @@ namespace huffman_prueba
 
         public String CifrarCesar(string msg, string encoded)
         {
-            String cipher = "";
+            StringBuilder cifrado = new StringBuilder();
             int pos = 0;
 
 
@@ -86,36 +86,36 @@ namespace huffman_prueba
                 if (msg[i] >= 'A' && msg[i] <= 'z' && !letrasno.Contains(msg[i]))
                 {
                     pos = getpos(msg[i]);
-                    cipher += encoded[pos];
+                    cifrado.Append(encoded[pos]);
                 }
                 else 
                 {
-                    cipher += msg[i];
+                    cifrado.Append(msg[i]);
                 }
             }
-            return cipher;
+            return cifrado.ToString();
         }
 
        public string DecifrarCesar(string msg, string clave)
         {
             int pos = 0;
-            string decipher = "";
+            StringBuilder descifrado = new StringBuilder();
             string claves = encoder(clave);
             for (int i = 0; i < msg.Length; i++)
             {
                 if (msg[i] >= 'A' && msg[i] <= 'z' && !letrasno.Contains(msg[i]))
                 {
                     pos = getposl(msg[i], claves);
-                    decipher += letras[pos];
+                    descifrado.Append(letras[pos]);
                 }
                 else
                 {
-                    decipher += msg[i];
+                    descifrado.Append(msg[i]);
                 }
 
             }
 
-            return decipher;
+            return descifrado.ToString();
         }
 
         public string Cifrarzigzag(string msg, int nivel)
@@ -150,13 +150,13 @@ namespace huffman_prueba
                     rows -= 1;
             }
 
-            string result = "";
+            StringBuilder result = new StringBuilder();
             for (int i = 0; i < nivel; i++)
                 for (int j = 0; j < msg.Length; j++)
                     if (matriz[i, j] != '*')
-                        result += matriz[i, j];
+                        result.Append(matriz[i, j]);
 
-            return result;
+            return result.ToString();
         }
 
         public string Descifrarzigzag(string msg, int nivel)
@@ -191,7 +191,7 @@ namespace huffman_prueba
                     if (matriz[i, j] == '$' && index < msg.Length)
                         matriz[i, j] = msg[index++];
 
-            string result = "";
+            StringBuilder result = new StringBuilder();
 
             row = 0; col = 0;
             for (int i = 0; i < msg.Length; i++)
@@ -201,9 +201,8 @@ namespace huffman_prueba
                 if (row == nivel - 1)
                     abajo = false;
 
-                // place the marker 
                 if (matriz[row, col] != '$')
-                    result += matriz[row, col++];
+                    result.Append(matriz[row, col++]);
 
                 if (abajo)
                     row += 1;
@@ -211,12 +210,12 @@ namespace huffman_prueba
                     row -= 1;
 
             }
-            string resultado = "";
+            StringBuilder resultado = new StringBuilder();
             for (int i = 0; i < result.Length; i++)
             {
                 if (result[i] != '-')
                 {
-                    resultado += result[i];
+                    resultado.Append(result[i]);
                 }
                 else
                 {
@@ -225,14 +224,14 @@ namespace huffman_prueba
 
             }
 
-            return resultado;
+            return resultado.ToString();
         }
 
         public string CifrarRuta(string msg, int row, int col)
         {
             char[,] matrix = new char[row, col];
             char[] characters = msg.ToCharArray();
-            string cipher = "";
+            StringBuilder cipher = new StringBuilder();
           
             int o = 0;
             int p = 0;
@@ -255,7 +254,7 @@ namespace huffman_prueba
                     {
                         while (p < row)
                         {
-                            cipher += matrix[p, u];
+                            cipher.Append(matrix[p, u]);
                             p++;
                         }
                             p = 0;
@@ -263,14 +262,14 @@ namespace huffman_prueba
 
                 } 
 
-            return cipher;
+            return cipher.ToString();
         }
 
         public string DecifrarRuta(string msg, int row, int col)
         {
             char[,] matrix = new char[col, row];
             char[] characters = msg.ToCharArray();
-            string descipher = "";
+            StringBuilder descipher = new StringBuilder();
 
             int o = 0;
             while (o < msg.Length)
@@ -292,17 +291,17 @@ namespace huffman_prueba
                 {
                     for (int l = 0; l < col; l++)
                     {
-                        descipher += matrix[l, u];
+                        descipher.Append(matrix[l, u]);
                     }
                 }
 
             }
-            string resultado = "";
+            StringBuilder resultado = new StringBuilder();
             for (int i = 0; i < descipher.Length; i++)
             {
                 if (descipher[i] != '*')
                 {
-                    resultado += descipher[i];
+                    resultado.Append(descipher[i]);
                 }
                 else
                 {
@@ -311,7 +310,7 @@ namespace huffman_prueba
 
             }
 
-            return resultado;
+            return resultado.ToString();
         }
     }
 }

@@ -1,24 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jseba\\Source\\Repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\LZW prueba.csproj": {}
+    "C:\\Users\\Owner-1\\source\\repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\LZW prueba.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jseba\\Source\\Repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\LZW prueba.csproj": {
+    "C:\\Users\\Owner-1\\source\\repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\LZW prueba.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jseba\\Source\\Repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\LZW prueba.csproj",
+        "projectUniqueName": "C:\\Users\\Owner-1\\source\\repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\LZW prueba.csproj",
         "projectName": "LZW prueba",
-        "projectPath": "C:\\Users\\jseba\\Source\\Repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\LZW prueba.csproj",
-        "packagesPath": "C:\\Users\\jseba\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jseba\\Source\\Repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\obj\\",
+        "projectPath": "C:\\Users\\Owner-1\\source\\repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\LZW prueba.csproj",
+        "packagesPath": "C:\\Users\\Owner-1\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Owner-1\\source\\repos\\EDII_Lab5_1057719_1172819\\huffman prueba\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\jseba\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Owner-1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -55,7 +57,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
