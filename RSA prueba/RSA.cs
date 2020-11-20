@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Text;
 
-namespace huffman_prueba
+namespace RSA_prueba
 {
    public class RSA
     {
@@ -54,8 +55,10 @@ namespace huffman_prueba
         }
 
         public byte[] CipherAndDecipher(int m,int e,int n) {
-            double c = (Math.Pow(m,e))%n;
-            return BitConverter.GetBytes(c);
+            BigInteger c = BigInteger.ModPow(m, e, n);
+            bool le = BitConverter.IsLittleEndian;
+            return c.ToByteArray(true,false);
+            
         }
 
         
@@ -67,6 +70,17 @@ namespace huffman_prueba
 
             return 0;
         }
-        
+
+        public int Manualbytetoint(byte[] number) {
+            int finalnumber = 0;
+            for (int i = 0; i < number.Length; i++)
+            {
+                if (i != 0)
+                    finalnumber += number[i] * (256 * i);
+                else
+                    finalnumber += number[i];
+            }
+            return finalnumber;
+        }
     }
 }

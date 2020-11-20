@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace huffman_prueba
+namespace RSA_prueba
 {
     public class key
     {
