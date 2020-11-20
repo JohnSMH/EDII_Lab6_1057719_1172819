@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using huffman_prueba;
+using RSA_prueba;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Microsoft.AspNetCore.Routing;
@@ -13,6 +13,8 @@ using System.Data.SqlTypes;
 using System.IO.Compression;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using System.Text;
+
 
 namespace LAB6_1057719_1172819.Controllers
 {
@@ -26,19 +28,22 @@ namespace LAB6_1057719_1172819.Controllers
         {
             RSA prueba = new RSA();
             keypair valores = prueba.Generatekeys(number1, number2);
-           
+            using var fileWriteprivado = new FileStream("private.key", FileMode.OpenOrCreate);
+            using var fileWritepublico = new FileStream("public.key", FileMode.OpenOrCreate);
+
             try
             {
-                using var fileWriteprivado = new FileStream("private.key", FileMode.OpenOrCreate);
                 StreamWriter writerprivado = new StreamWriter(fileWriteprivado);
                 writerprivado.WriteLine(valores.llaveprivada.n);
                 writerprivado.WriteLine(valores.llaveprivada.ed);
+                writerprivado.Close();
                 fileWriteprivado.Close();
-                using var fileWritepublico = new FileStream("public.key", FileMode.OpenOrCreate);
+
                 StreamWriter writerpublico = new StreamWriter(fileWritepublico);
                 writerpublico.WriteLine(valores.llavepublica.n);
                 writerpublico.WriteLine(valores.llavepublica.ed);
-                fileWritepublico.Close();
+                writerpublico.Close();
+
 
                 string[] files = { "private.key ", "public.key" };
                 using (var zipArchive = ZipFile.Open("keys.zip", ZipArchiveMode.Update))
@@ -71,28 +76,56 @@ namespace LAB6_1057719_1172819.Controllers
             using var fileReadllave = filellave.OpenReadStream();
             try
             {
-                //RSA prueba = new RSA();
-                //keypair valores = prueba.Generatekeys(p, q);
-                //prueba.Cipher(fileRead.ReadByte, 17);
+                RSA prueba = new RSA();
+                using var fileWrite = new FileStream(nombre + ".txt", FileMode.OpenOrCreate);
+                var writer = new BinaryWriter(fileWrite);
+                StreamReader leer = new StreamReader(fileReadllave);
+                int n = Convert.ToInt32(leer.ReadLine());
+                int eod = Convert.ToInt32(leer.ReadLine());
 
-                //writer.Close();
-                //BfileWrite.Close();
-                //fileWrite.Close();
+                if (filellave.FileName.Contains("public.key"))
+                {
+                    using var reader = new BinaryReader(fileRead);
+                    var buffer = new byte[2000];
+                    while (fileRead.Position < fileRead.Length)
+                    {
+                        buffer = reader.ReadBytes(2000);
+                        foreach (var value in buffer)
+                        {
+                            writer.Write(prueba.Manualbytetoint(prueba.CipherAndDecipher(value, eod, n)));
+                        }
+                    }
+                }
 
-                //var files = System.IO.File.OpenRead(Path.GetFileNameWithoutExtension(file.FileName) + ".rt");
-                //return new FileStreamResult(files, "application/rt")
-                //{
-                //    FileDownloadName = Path.GetFileNameWithoutExtension(file.FileName) + ".rt"
-                //};\
-                return Ok();
+                if (filellave.FileName.Contains("private.key"))
+                {
+                    using var reader = new BinaryReader(fileRead);
+                    var buffer = new byte[2000];
+                    while (fileRead.Position < fileRead.Length)
+                    {
+                        buffer = reader.ReadBytes(2000);
+                        foreach (var value in buffer)
+                        {
+                            writer.Write(prueba.CipherAndDecipher(value, eod, n));
+                        }
+                    }
+                }
+                writer.Close();
+                leer.Close();
+                fileWrite.Close();
+                var files = System.IO.File.OpenRead(nombre + ".txt");
+                return new FileStreamResult(files, "application/txt")
+                {
+                    FileDownloadName = nombre + ".txt"
+                };
 
             }
+        
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
 
         }
-
     }
 }
