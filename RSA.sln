@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RSA prueba", "RSA prueba\RSA prueba.csproj", "{5E81E069-3B2B-46F2-AE11-8B348E56CDAF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API RSA", "Lab6\Lab1\API RSA.csproj", "{FBD2F55A-8952-4BA5-BF5C-A8AA4CE5ED9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LAB6_1057719_1172819", "LAB6_1057719_1172819\LAB6_1057719_1172819\LAB6_1057719_1172819.csproj", "{F1858EF2-E4E6-4078-B302-97E1080F8310}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{5E81E069-3B2B-46F2-AE11-8B348E56CDAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E81E069-3B2B-46F2-AE11-8B348E56CDAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E81E069-3B2B-46F2-AE11-8B348E56CDAF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FBD2F55A-8952-4BA5-BF5C-A8AA4CE5ED9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FBD2F55A-8952-4BA5-BF5C-A8AA4CE5ED9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FBD2F55A-8952-4BA5-BF5C-A8AA4CE5ED9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FBD2F55A-8952-4BA5-BF5C-A8AA4CE5ED9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1858EF2-E4E6-4078-B302-97E1080F8310}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1858EF2-E4E6-4078-B302-97E1080F8310}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1858EF2-E4E6-4078-B302-97E1080F8310}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1858EF2-E4E6-4078-B302-97E1080F8310}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
