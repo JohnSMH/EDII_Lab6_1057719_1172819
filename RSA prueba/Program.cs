@@ -5,7 +5,7 @@ using System.IO;
 using System.Collections;
 using System.Security.Cryptography.X509Certificates;
 
-namespace huffman_prueba
+namespace RSA_prueba
 {
     class Program
     {
@@ -15,7 +15,11 @@ namespace huffman_prueba
             RSA prueba = new RSA();
             prueba.Generatekeys(0,0);
             byte m = 32;
-            prueba.Cipher(m,17,3233);
+            List<byte[]> bytelist = new List<byte[]>();
+            int ahoraadecifrar =prueba.Manualbytetoint(prueba.CipherAndDecipher(m,17,3233));
+            List<byte> finaltest = new List<byte>();
+            finaltest.AddRange(prueba.CipherAndDecipher(ahoraadecifrar, 2753,3233));
+
             Console.ReadKey();
         }
 
