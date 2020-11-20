@@ -4,7 +4,7 @@ using System.Text;
 
 namespace huffman_prueba
 {
-    class key
+    public class key
     {
         public key() { }
         public key(int newn, int newed) {
@@ -14,7 +14,7 @@ namespace huffman_prueba
         public int n {get; set;}
         public int ed {get; set;}
     }
-    class keypair {
+     public class keypair {
         public key llavepublica { get; set; }
         public key llaveprivada { get; set; }
 

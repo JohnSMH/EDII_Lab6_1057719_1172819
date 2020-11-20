@@ -15,7 +15,7 @@ namespace huffman_prueba
             RSA prueba = new RSA();
             prueba.Generatekeys(0,0);
             byte m = 32;
-            prueba.Cipher(m,17,3233);
+            //prueba.Cipher(m,17,3233);
             Console.ReadKey();
         }
 

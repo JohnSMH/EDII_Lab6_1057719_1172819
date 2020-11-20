@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\huffman prueba\RSA prueba.csproj" />
+    <ProjectReference Include="..\..\RSA prueba\RSA prueba.csproj" />
   </ItemGroup>
 
 

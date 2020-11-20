@@ -4,13 +4,11 @@ using System.Text;
 
 namespace huffman_prueba
 {
-    class RSA
+   public class RSA
     {
         
         public keypair Generatekeys(int p, int q) {
             //por ahora asumir valores de p q y e
-            p = 61;
-            q = 53;
             //Por añadir generar e con sus reglas
             int e = 17;
             
