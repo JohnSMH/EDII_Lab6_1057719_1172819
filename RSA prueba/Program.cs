@@ -13,7 +13,7 @@ namespace RSA_prueba
         {
 
             RSA prueba = new RSA();
-            prueba.Generatekeys(0,0);
+            prueba.Generatekeys(13,53);
             byte m = 32;
             List<byte[]> bytelist = new List<byte[]>();
             int ahoraadecifrar =prueba.Manualbytetoint(prueba.CipherAndDecipher(m,17,3233));

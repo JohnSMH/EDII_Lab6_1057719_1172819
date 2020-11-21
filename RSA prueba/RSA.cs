@@ -11,7 +11,7 @@ namespace RSA_prueba
         public keypair Generatekeys(int p, int q) {
             //por ahora asumir valores de p q y e
             //Por añadir generar e con sus reglas
-            int e = 17;
+            int e = 65537;
             
 
             int n = p * q;
@@ -47,7 +47,7 @@ namespace RSA_prueba
 
                 if (lowerright < 0)
                 {
-                    lowerright = lowerright + phi;
+                    lowerright = modulo(lowerright,phi);
                 }
 
             }
@@ -61,15 +61,19 @@ namespace RSA_prueba
             
         }
 
-        
-
-        public int Erastothenes(int phi) {
-            Random randomizer = new Random();
-
-            
-
-            return 0;
+        int modulo(int x, int N)
+        {
+            return (x % N + N) % N;
         }
+
+
+        //public int Erastothenes(int phi) {
+        //    Random randomizer = new Random();
+
+
+
+        //    return 0;
+        //}
 
         public int Manualbytetoint(byte[] number) {
             int finalnumber = 0;
