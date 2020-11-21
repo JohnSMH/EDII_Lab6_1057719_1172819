@@ -14,7 +14,7 @@ using System.IO.Compression;
 using System.IO;
 using Microsoft.AspNetCore.Http;
 using System.Text;
-
+using System.Numerics;
 
 namespace LAB6_1057719_1172819.Controllers
 {
@@ -101,12 +101,14 @@ namespace LAB6_1057719_1172819.Controllers
                                 size = valor.Length;
                         }
                     }
+
                     writer.Write(size);
                     foreach (var number in bytelist) {
                         int correccion = size - number.Length;
                         while (correccion!=0)
                         {
-                            writer.Write(0);
+                            writer.Write(BigInteger.Zero.ToByteArray());
+                            correccion--;
                         }
                         writer.Write(number);
                     }
@@ -115,7 +117,7 @@ namespace LAB6_1057719_1172819.Controllers
                 if (filellave.FileName.Contains("private.key"))
                 {
                     using var reader = new BinaryReader(fileRead);
-                    int size = reader.ReadByte();
+                    int size = BitConverter.ToInt32(reader.ReadBytes(4));
                     var buffer = new byte[1000*size];
                     
                     while (fileRead.Position < fileRead.Length)
