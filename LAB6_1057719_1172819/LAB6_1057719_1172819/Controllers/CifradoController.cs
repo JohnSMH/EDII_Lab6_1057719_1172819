@@ -87,27 +87,43 @@ namespace LAB6_1057719_1172819.Controllers
                 {
                     using var reader = new BinaryReader(fileRead);
                     var buffer = new byte[2000];
+                    List<byte[]> bytelist = new List<byte[]>();
+                    int size = 0;
                     while (fileRead.Position < fileRead.Length)
                     {
                         buffer = reader.ReadBytes(2000);
                         foreach (var value in buffer)
                         {
-                            writer.Write(prueba.Manualbytetoint(prueba.CipherAndDecipher(value, eod, n)));
+                            //writer.Write(prueba.Manualbytetoint(prueba.CipherAndDecipher(value, eod, n)));
+                            byte[] valor = prueba.CipherAndDecipher(value, eod, n);
+                            bytelist.Add(valor);
+                            if (valor.Length > size)
+                                size = valor.Length;
                         }
+                    }
+                    writer.Write(size);
+                    foreach (var number in bytelist) {
+                        int correccion = size - number.Length;
+                        while (correccion!=0)
+                        {
+                            writer.Write(0);
+                        }
+                        writer.Write(number);
                     }
                 }
 
                 if (filellave.FileName.Contains("private.key"))
                 {
                     using var reader = new BinaryReader(fileRead);
-                    var buffer = new byte[2000];
+                    int size = reader.ReadByte();
+                    var buffer = new byte[1000*size];
+                    
                     while (fileRead.Position < fileRead.Length)
                     {
-                        buffer = reader.ReadBytes(2000);
-                        foreach (var value in buffer)
-                        {
-                            writer.Write(prueba.CipherAndDecipher(value, eod, n));
-                        }
+                        byte[] number = reader.ReadBytes(size);
+                        int deciphered = prueba.Manualbytetoint(number);
+                        byte[] final = prueba.CipherAndDecipher(deciphered,eod,n);
+                        writer.Write(final);
                     }
                 }
                 writer.Close();
