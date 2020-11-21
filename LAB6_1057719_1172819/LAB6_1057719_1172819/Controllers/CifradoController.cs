@@ -95,7 +95,7 @@ namespace LAB6_1057719_1172819.Controllers
                         foreach (var value in buffer)
                         {
                             //writer.Write(prueba.Manualbytetoint(prueba.CipherAndDecipher(value, eod, n)));
-                            byte[] valor = prueba.CipherAndDecipher(value, eod, n);
+                            byte[] valor = prueba.CipherAndDecipher((int)value, eod, n);
                             bytelist.Add(valor);
                             if (valor.Length > size)
                                 size = valor.Length;
@@ -105,12 +105,13 @@ namespace LAB6_1057719_1172819.Controllers
                     writer.Write(size);
                     foreach (var number in bytelist) {
                         int correccion = size - number.Length;
+                        writer.Write(number);
                         while (correccion!=0)
                         {
                             writer.Write(BigInteger.Zero.ToByteArray());
                             correccion--;
                         }
-                        writer.Write(number);
+                        
                     }
                 }
 
